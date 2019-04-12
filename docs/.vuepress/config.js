@@ -43,14 +43,22 @@ module.exports = {
           collapsable: false,
           children: [
             ['Math/trunc', 'trunc()去除小数（es6新增）'],
-            ['Math/sign', 'sign()判断征服（es6新增）'],
+            ['Math/sign', 'sign()判断数字正负（es6新增）'],
           ]
         },
         {
           title: 'Array',
           collapsable: false,
           children: [
-            ['Array/bianping', '数组扁平化'],
+            ['Array/flat', '数组扁平化'],
+            ['Array/unique', '数组去重'],
+          ]
+        },
+        {
+          title: 'Object',
+          collapsable: false,
+          children: [
+            ['Object/copy', '对象的拷贝（深拷贝和浅拷贝）'],
           ]
         },
       ],
