@@ -52,6 +52,20 @@ console.log(unique(arr)); //[ 1, '1', '2' ,{ name: 'hanzichi' },{ name: 'hanzich
 ### 4、ES6 部署了 Set 以及 Array.from 方法，太强大了！如果浏览器支持，完全可以这样：(对象地址不一样,因此为不同的元素)
 
 ```js
+// 去除数组的重复成员
+[...new Set(array)]
+```
+
+* 上面的方法也可以用于，去除字符串里面的重复字符。
+
+```js
+[...new Set('ababbc')].join('')
+// "abc"
+```
+
+* 也可以使用下面的方式
+
+```js
 function unique(a) {
   return Array.from(new Set(a));
 }

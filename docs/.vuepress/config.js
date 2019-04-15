@@ -14,6 +14,7 @@ module.exports = {
       { text: 'Home', link: '/home/' },
       { text: 'Compatible', link: '/compatible/' },
       { text: 'Method', link: '/method/' },
+      { text: 'Example', link: '/example/' },
       { text: 'Github', link: 'https://google.com' },
     ],
     sidebar: {
@@ -29,15 +30,18 @@ module.exports = {
         // },
       ],
       '/compatible/': [
-        {
-          title: '兼容汇总',
-          collapsable: false,
-          children: [
-            ['mouse', '鼠标滚轮在各个浏览器的兼容问题'],
-          ]
-        },
+        ['mouse', '鼠标滚轮在各个浏览器的兼容问题'],
+        // {
+        //   title: '兼容汇总',
+        //   collapsable: false,
+        //   children: [
+        //     ['mouse', '鼠标滚轮在各个浏览器的兼容问题'],
+        //   ]
+        // },
       ],
       '/method/': [
+        ['browserInfo','js判断浏览器方法'],
+        ['RegExp','js中正则的使用和基本知识回顾'],
         {
           title: 'Math',
           collapsable: false,
@@ -62,6 +66,9 @@ module.exports = {
           ]
         },
       ],
+      '/example/':[
+        ['scrollBar','浏览器自定义滚动条']
+      ]
     },
     sidebarDepth: 0,   //侧边栏提取深度 0-不提取 1-提取H1和H2 2-提取H1 H2 H3 
     searchMaxSuggestions: 10, //搜索默认最大十条
