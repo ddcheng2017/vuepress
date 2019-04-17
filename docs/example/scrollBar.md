@@ -1,6 +1,6 @@
 # 自定义滚动条
 
-## 在页面中自定义滚动条（使用js）以下三个代码分别为是html、css、和js代码
+## 在页面中自定义滚动条（使用js）以下三个代码分别为是html、css、和js代码(在vue单文件中使用需要对this等地方修改)
 
 ```html
 <div id="main">
@@ -149,6 +149,12 @@ function mousewheel(obj, Fn) {
 }
 ```
 
+demo:
+
+<ScrollBarJs/>
+
+* 使用在vue中需要对this指向问题进行修改，[点击下载](../ScrollBarJs.vue)
+
 ## 还有一种方法修改浏览器的默认样式（比较简单，兼容性也比较好）（来自[30秒的css](https://30-seconds.github.io/30-seconds-of-css/)）
 
 ```html
@@ -181,9 +187,12 @@ function mousewheel(obj, Fn) {
   box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
 }
 ```
+
 * 更多滚动条样式访问[WebKit博客](https://webkit.org/blog/363/styling-scrollbars/)
 
 demo:
+
+<ScrollBarCss/> 
 
 ### Explanation
 
