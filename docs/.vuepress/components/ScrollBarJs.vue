@@ -108,10 +108,10 @@
 }
 #con,
 .scrollbar {
-  transition: all 0.3s ease;
-  -moz-transition: all 0.3s ease; /* Firefox 4 */
-  -webkit-transition: all 0.3s ease; /* Safari 和 Chrome */
-  -o-transition: all 0.3s ease; /* Opera */
+  transition: all 0.3s;
+  -moz-transition: all 0.3s; /* Firefox 4 */
+  -webkit-transition: all 0.3s; /* Safari 和 Chrome */
+  -o-transition: all 0.3s; /* Opera */
 }
 </style>
 

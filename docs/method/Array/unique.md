@@ -1,8 +1,10 @@
 # 数组去除重复
 
-## 数组去除重复时要关注数组中的元素是否有对象，如果有一些方法需要格外小心，相同的对象在内存中的位置不同，看作不同的元素，（看需求是否需要将相同对象去重）
+数组去除重复时要关注数组中的元素是否有对象，如果有一些方法需要格外小心，相同的对象在内存中的位置不同，看作不同的元素，（看需求是否需要将相同对象去重）
 
-### 1、最基础的方法（兼容性好）(对象地址不一样,因此为不同的元素)
+## 1、基础的方法
+
+* （兼容性好）(对象地址不一样,因此为不同的元素)
 
 ```js
 function unique(arr) {
@@ -20,7 +22,9 @@ let arr1 = [1, 1, '2', '1', 3, 4,{ name: 'hanzichi' },{ name: 'hanzichi' }];
 console.log(unique(arr1)); //arr=[1,'2','1',3,4,{ name: 'hanzichi' },{ name: 'hanzichi' }]
 ```
 
-### 2、如果不考虑兼容性，会用ES5里面数组的indexOf()方法。(对象地址不一样,因此为不同的元素)
+## 2、数组的indexOf()方法
+
+* 如果不考虑兼容性，会用ES5里面数组的indexOf()方法。(对象地址不一样,因此为不同的元素)
 
 ```js
 function unique(arr) {
@@ -36,7 +40,9 @@ arr = unique(arr);
 console.log(arr);// arr=[1,'2','1',3,4,{ name: 'hanzichi' },{ name: 'hanzichi' }]
 ```
 
-### 3、利用ES5数组里的filter过滤：(对象地址不一样,因此为不同的元素)
+## 3、ES5数组里的filter过滤
+
+* 利用ES5数组里的filter过滤：(对象地址不一样,因此为不同的元素)
 
 ```js
 function unique(arr) {
@@ -49,7 +55,9 @@ var arr = [1, 1, '1', '2', 1,{ name: 'hanzichi' },{ name: 'hanzichi' }];
 console.log(unique(arr)); //[ 1, '1', '2' ,{ name: 'hanzichi' },{ name: 'hanzichi' }]
 ```
 
-### 4、ES6 部署了 Set 以及 Array.from 方法，太强大了！如果浏览器支持，完全可以这样：(对象地址不一样,因此为不同的元素)
+## 4、ES6部署 Set 以及 Array.from
+
+* ES6 部署了 Set 以及 Array.from 方法，太强大了！如果浏览器支持，完全可以这样：(对象地址不一样,因此为不同的元素)
 
 ```js
 // 去除数组的重复成员
@@ -73,7 +81,9 @@ var arr = [{ name: "hanzichi" }, { age: 30 }, new String(1), new Number(1), { na
 console.log(unique(arr));  // =>[{ name: 'hanzichi' }, { age: 30 }, [String: '1'], [Number: 1], { name: 'hanzichi' }, 1, 2]
 ```
 
-### 5、当然还有一些针对部分类型数组的去重（对象键值法去重，数组中有对象时会将相同的去重，看需求使用。优点是速度快）
+## 5、部分类型数组的去重
+
+* 当然还有一些针对部分类型数组的去重（对象键值法去重，数组中有对象时会将相同的去重，看需求使用。优点是速度快）
 
 ```js
 /*

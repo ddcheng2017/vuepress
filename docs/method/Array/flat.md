@@ -6,9 +6,9 @@
 [1, [2, 3, [4, 5]]]  ------>    [1, 2, 3, 4, 5]
 ```
 
-## 实现
+**实现**
 
-### 1、reduce
+## 1、reduce
 
 * 遍历数组每一项，若值为数组则递归遍历，否则concat。
 
@@ -30,7 +30,7 @@ arr.reduce((total, item)=> {  // total为之前的计算结果，item为数组�
 }, 0);
 ```
 
-### 2、toString & split
+## 2、toString & split
 
 * 调用数组的toString方法，将数组变为字符串然后再用split分割还原为数组
 
@@ -44,7 +44,7 @@ function flatten(arr) {
 
 * 因为split分割后形成的数组的每一项值为字符串，所以需要用一个map方法遍历数组将其每一项转换为数值型
 
-### 3、join & split
+## 3、join & split
 
 * 和上面的toString一样，join也可以将数组转换为字符串
 
@@ -56,7 +56,7 @@ function flatten(arr) {
 }
 ```
 
-### 4、递归
+## 4、递归
 
 * 递归的遍历每一项，若为数组则继续遍历，否则concat
 
@@ -74,7 +74,7 @@ function flatten(arr) {
 }
 ```
 
-### 5、扩展运算符
+## 5、扩展运算符
 
 * es6的扩展运算符能将二维数组变为一维
 
@@ -93,7 +93,9 @@ function flatten(arr) {
 }
 ```
 
-### 6、es6 新增flat方法(最简单就一行)
+## 6、es6 新增flat方法
+
+* (最简单就一行)
 
 * 数组的成员有时还是数组，Array.prototype.flat()用于将嵌套的数组“拉平”，变成一维的数组。该方法返回一个新数组，对原数据没有影响。
 
@@ -102,7 +104,7 @@ function flatten(arr) {
 // [1, 2, 3, 4]
 ```
 
-### 总结
+## 总结
 
 * 虽然方法很多，核心也只有一个：
 * 遍历数组arr，若arr[i]为数组则递归遍历，直至arr[i]不为数组然后与之前的结果concat。 （第六种除外）

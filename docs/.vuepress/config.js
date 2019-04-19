@@ -15,7 +15,15 @@ module.exports = {
       { text: 'Compatible', link: '/compatible/' },
       { text: 'Method', link: '/method/' },
       { text: 'Example', link: '/example/' },
-      { text: 'Github', link: 'https://google.com' },
+      {
+        text: 'Course',
+        items: [
+          { text: 'Flex布局', link: '/course/flex' },
+          { text: 'Gird布局', link: '/course/gird' },
+          { text: 'RegExp正则', link: '/course/RegExp' },
+        ]
+      },
+      // { text: 'Github', link: 'https://google.com' },
     ],
     sidebar: {
       // fallback
@@ -40,8 +48,8 @@ module.exports = {
         // },
       ],
       '/method/': [
-        ['browserInfo','js判断浏览器方法'],
-        ['RegExp','js中正则的使用和基本知识回顾'],
+        ['browserInfo', 'js判断浏览器方法'],
+
         {
           title: 'Math',
           collapsable: false,
@@ -66,21 +74,26 @@ module.exports = {
           ]
         },
       ],
-      '/example/':[
-        ['scrollBar','浏览器自定义滚动条']
-      ]
+      '/example/': [
+        ['scrollBar', '浏览器自定义滚动条'],
+      ],
+      // '/course/': [
+      //   ['flex', 'Flex布局'],
+      //   ['gird', 'Gird布局'],
+      //   ['RegExp', 'js中正则的使用和基本知识回顾'],
+      // ]
     },
     sidebarDepth: 0,   //侧边栏提取深度 0-不提取 1-提取H1和H2 2-提取H1 H2 H3 
     searchMaxSuggestions: 10, //搜索默认最大十条
     lastUpdated: 'Last Updated', // string | boolean
-    serviceWorker: {
-      updatePopup: true, // Boolean | Object, 默认值是 undefined. 允许热更新
-      // 如果设置为 true, 默认的文本配置将是: 
-      updatePopup: {
-        message: "New content is available.",
-        buttonText: "Refresh"
-      }
-    }
+    // serviceWorker: {
+    //   updatePopup: true, // Boolean | Object, 默认值是 undefined. 允许热更新
+    //   // 如果设置为 true, 默认的文本配置将是: 
+    //   updatePopup: {
+    //     message: "New content is available.",
+    //     buttonText: "Refresh"
+    //   }
+    // }
 
   },
   markdown: {

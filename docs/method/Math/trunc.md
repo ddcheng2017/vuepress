@@ -1,6 +1,6 @@
 # Math.trunc()方法简述
 
-## Math.trunc方法用于去除一个数的小数部分，返回整数部分。(es6新增)
+Math.trunc方法用于去除一个数的小数部分，返回整数部分。(es6新增)
 
 ```js
 Math.trunc(4.1) // 4

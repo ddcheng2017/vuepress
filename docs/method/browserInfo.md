@@ -1,8 +1,8 @@
 # js判断浏览器的信息
 
-## 浏览器的类型保存在字段navigator.userAgent中，对他进行判断即可
+浏览器的类型保存在字段navigator.userAgent中，对他进行判断即可[参考连接](https://www.cnblogs.com/hailexuexi/p/6908141.html)
 
-### 1、首先对于是否是IE以及版本进行判断。
+## 1、对IE以及版本进行判断。
 
 ```js
 function ieVersion() {
@@ -48,7 +48,7 @@ function ieVersion() {
 11|Number|ie11
 'edge'|String|ie的edge浏览器
 
-### 2、对于浏览器的判断（不含具体版本号）
+## 2、对于浏览器的判断（不含具体版本号）
 
 ```js
 function browserInfo() {
@@ -56,22 +56,28 @@ function browserInfo() {
   if (userAgent.indexOf("Opera") > -1) {
     return "Opera"
   }; //判断是否Opera浏览器
+  if (userAgent.indexOf("Maxthon") > -1) {
+    return "Opera"
+  }; //判断是否遨游浏览器
   if (userAgent.indexOf("Firefox") > -1) {
     return "Firefox";
   } //判断是否Firefox浏览器
-  if (userAgent.indexOf("Chrome") > -1) {
+  if (userAgent.indexOf("Chrome") > -1 && userAgent.indexOf("Safari") > -1) {
     return "Chrome";
   }
-  if (userAgent.indexOf("Safari") > -1) {
+  if (userAgent.indexOf("Safari") > -1 && userAgent.indexOf("Chrome") == -1) {
     return "Safari";
   } //判断是否Safari浏览器
   if (userAgent.indexOf("compatible") > -1 && userAgent.indexOf("MSIE") > -1 && !isOpera) {
     return "IE";
   }; //判断是否IE浏览器
+  if (userAgent.indexOf("Windows NT 6.1; Trident/7.0;") > -1 && !isIE) {
+    return "Edge ";
+  }; //判断是否IE的Edge浏览器
 }
 ```
 
-### 3、还有一个比较全面的判断（条件有限未测试其中部分）
+## 3、还有一个比较全面的判断（条件有限未测试其中部分）
 
 ```js
 var browser = {
