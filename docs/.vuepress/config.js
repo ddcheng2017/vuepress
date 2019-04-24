@@ -39,6 +39,7 @@ module.exports = {
       ],
       '/compatible/': [
         ['mouse', '鼠标滚轮在各个浏览器的兼容问题'],
+        ['getCss', '获取元素的样式'],
         // {
         //   title: '兼容汇总',
         //   collapsable: false,
@@ -49,6 +50,8 @@ module.exports = {
       ],
       '/method/': [
         ['browserInfo', 'js判断浏览器方法'],
+        ['height', '浏览器中的宽高问题'],
+        ['nodeIO', 'node中的输入与输出'],
 
         {
           title: 'Math',

@@ -10,6 +10,8 @@ sidebarDepth: 2
 
 2009年，W3C 提出了一种新的方案----Flex 布局，可以简便、完整、响应式地实现各种页面布局。目前，它已经得到了所有浏览器的支持，这意味着，现在就能很安全地使用这项功能。
 
+![flex](../.vuepress/public/img/flex/flex.png)
+
 Flex[实例demo](http://static.vgee.cn/static/index.html)
 
 布局实例参照[此篇文章](http://www.ruanyifeng.com/blog/2015/07/flex-examples.html)
@@ -183,7 +185,7 @@ Webkit 内核的浏览器，必须加上`-webkit`前缀。
 }
 ```
 
-![gird](../.vuepress/public/img/flex/1.png)
+![flex](../.vuepress/public/img/flex/1.png)
 
 ### 4.2 flex-grow属性
 
@@ -195,7 +197,7 @@ Webkit 内核的浏览器，必须加上`-webkit`前缀。
 }
 ```
 
-![gird](../.vuepress/public/img/flex/2.png)
+![flex](../.vuepress/public/img/flex/2.png)
 
 如果所有项目的`flex-grow`属性都为`1`，则它们将等分剩余空间（如果有的话）。如果一个项目的`flex-grow`属性为`2`，其他项目都为`1`，则前者占据的剩余空间将比其他项多一倍。
 
