@@ -14,7 +14,7 @@ module.exports = {
       { text: 'Home', link: '/home/' },
       { text: 'Compatible', link: '/compatible/' },
       { text: 'Method', link: '/method/' },
-      { text: 'Example', link: '/example/' },
+      // { text: 'Example', link: '/example/' },
       {
         text: 'Course',
         items: [
@@ -49,10 +49,20 @@ module.exports = {
         // },
       ],
       '/method/': [
-        ['browserInfo', 'js判断浏览器方法'],
-        ['height', '浏览器中的宽高问题'],
-        ['nodeIO', 'node中的输入与输出'],
 
+        {
+          title: 'Other',
+          collapsable: false,
+          children: [
+            ['browserInfo', 'js判断浏览器方法'],
+            ['height', '浏览器中的宽高问题'],
+            ['nodeIO', 'node中的输入与输出'],
+            ['rem', '移动端rem的js监控'],
+            ['scrollBar', '浏览器自定义滚动条'],
+            ['hashAnimate', '使用js动态为锚点添加动画'],
+            ['time', 'js中的时间问题'],
+          ]
+        },
         {
           title: 'Math',
           collapsable: false,
@@ -77,9 +87,9 @@ module.exports = {
           ]
         },
       ],
-      '/example/': [
-        ['scrollBar', '浏览器自定义滚动条'],
-      ],
+      // '/example/': [
+      //   // ['scrollBar', '浏览器自定义滚动条'],
+      // ],
       // '/course/': [
       //   ['flex', 'Flex布局'],
       //   ['gird', 'Gird布局'],
