@@ -38,7 +38,7 @@ module.exports = {
         // },
       ],
       '/compatible/': [
-        ['mouse', '鼠标滚轮在各个浏览器的兼容问题'],
+        ['mouse', '鼠标滚轮兼容问题'],
         ['getCss', '获取元素的样式'],
         // {
         //   title: '兼容汇总',
