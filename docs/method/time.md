@@ -71,3 +71,5 @@ new Date("Mon Feb 07 2011 11:05:00 GMT"); // ""Day Mon dd yyyy hh:mm:ss GMT/UTC
 ```
 
 * 以上几种方式都是可以进行设置的
+
+<comments />

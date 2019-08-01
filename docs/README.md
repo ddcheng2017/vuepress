@@ -1,9 +1,7 @@
 ---
-home: true
-heroImage: /img/logo.png
-actionText: 首页 →
-actionLink: /home/
-footer: ddcheng2017@gmail.com
+navbar: false
+sidebar: false
+pageClass: home-list
 ---
 
-* todo:markdown,promise,案例,git...
+<home />

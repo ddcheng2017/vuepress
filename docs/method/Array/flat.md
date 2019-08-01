@@ -108,3 +108,5 @@ function flatten(arr) {
 
 * 虽然方法很多，核心也只有一个：
 * 遍历数组arr，若arr[i]为数组则递归遍历，直至arr[i]不为数组然后与之前的结果concat。 （第六种除外）
+
+<comments />

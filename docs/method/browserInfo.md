@@ -127,3 +127,5 @@ var browser = {
 ```
 
 * browser.ua返回值为当前浏览器信息。可进行后一步的判断
+
+<comments />

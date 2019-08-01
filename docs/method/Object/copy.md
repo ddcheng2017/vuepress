@@ -4,7 +4,7 @@
 
 相关知识点
 
-1.javascript变量包含两种不同数据类型的值：基本类型和引用类型。
+1.javascript变量包含两种不同数据类型的值：基本类型和引用类型。可参照此篇[数据类型](http://www.mamicode.com/info-detail-2347949.html)
 
 * 基本类型值指的是简单的数据段，包括es6里面新增的一共是有7种，具体如下：number、string、boolean、null、undefined、symbol、object(object、array、function)。
 * 引用类型值指那些可能由多个值构成的对象，有一种如下：object。在将一个值赋给变量时，解析器必须确定这个值是基本类型值还是引用类型值。
@@ -194,3 +194,5 @@ arr1[2][0] = 'change';
 console.log(arr);//=>[ 1, 2, [ 3, 6 ] ] 不会改变
 console.log(arr1);//=>[ 'changed', 2, [ 'change', 6 ] ]
 ```
+
+<comments />

@@ -113,3 +113,5 @@ function uniq(array) {
 var aa = [1, 2, "2", 4, 9, "a", "a", 2, 3, 5, 6, 5,{ name: 'hanzichi' },{ name: 'hanzichi' }];
 console.log(uniq(aa));//=>[ 1, 2, '2', 4, 9, 'a', 3, 5, 6, { name: 'hanzichi' } ]
 ```
+
+<comments />
