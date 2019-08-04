@@ -1,6 +1,6 @@
 module.exports = {
   base: '/vuepress/',
-  dest: '../../../newGitPages/vuepress',
+  dest: './../newGitPages/vuepress',
   head: [
     ['link', { rel: 'icon', href: '/img/logo.png' }]
   ],
@@ -13,7 +13,7 @@ module.exports = {
   themeConfig: {
     nav: [
       { text: '首页', link: '/home/' },
-      { text: '练习总结', link: '/practice/' },
+      { text: '随手记', link: '/practice/' },
       // { text: '代码兼容', link: '/compatible/' },
       { text: '方法汇总', link: '/method/' },
       // { text: '总结资料', link: '/summary/' },
@@ -31,7 +31,7 @@ module.exports = {
     sidebar: {
       // fallback
       '/home/': [
-        ['', '首页']
+        // ['', '首页'],
         // {
         //   title: '首页',
         //   collapsable: false,
@@ -70,6 +70,13 @@ module.exports = {
           ]
         },
         {
+          title: 'String',
+          collapsable: false,
+          children: [
+            ['String/find', '获取指定元素的指定出现位置'],
+          ]
+        },
+        {
           title: 'Math',
           collapsable: false,
           children: [
@@ -83,6 +90,7 @@ module.exports = {
           children: [
             ['Array/flat', '数组扁平化'],
             ['Array/unique', '数组去重'],
+            ['Array/pushNoRepeat', '数组添加非重复元素'],
           ]
         },
         {
@@ -106,6 +114,7 @@ module.exports = {
       //   // ['scrollBar', '浏览器自定义滚动条'],
       // ],
       // '/summary/': [
+      //   // ['','总结资料'],
       //   ['flex', 'Flex布局'],
       //   ['gird', 'Gird布局'],
       //   ['RegExp', 'js中正则的使用和基本知识回顾'],
@@ -127,6 +136,7 @@ module.exports = {
   },
   markdown: {
     lineNumbers: false, // 默认显示行号
+    toc: { includeLevel: [2, 3] }
   },
 
 }

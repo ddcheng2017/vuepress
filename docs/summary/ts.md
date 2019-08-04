@@ -52,7 +52,7 @@ typescript 中为了使编写的代码更规范，更有利于维护，增加了
 
 ### 2.1、布尔类型（boolean）
 
-```js
+```ts
 //es5 的写法 （正确写法） ts 中（错误写法）
 var flag = true;
 
@@ -61,7 +61,7 @@ flag = 456;
 
 - typescript 中为了使编写的代码更规范，更有利于维护，增加了类型校验写 ts 代码必须指定类型
 
-```js
+```ts
 var flag: boolean = true;
 flag = 123; //错误
 flag = false; //正确
@@ -69,7 +69,7 @@ flag = false; //正确
 
 ### 2.2、数字类型（number）
 
-```js
+```ts
 var num: number = 123;
 num = 456;
 console.log(num);
@@ -79,7 +79,7 @@ num = "str"; //错误
 
 ### 2.3、字符串类型(string)
 
-```js
+```ts
 var str: string = "this is ts";
 str = "haha"; //正确
 str = true; //错误
@@ -89,7 +89,7 @@ str = true; //错误
 
 ts 中定义数组有两种方式
 
-```js
+```ts
 var arr = ["1", "2"]; //es5定义数组
 // 1.第一种定义数组的方式
 var arr: number[] = [11, 22, 33];
@@ -106,7 +106,7 @@ console.log(arr);
 
 属于数组的一种（可以用了规定数据中包含多种格式数据）
 
-```js
+```ts
 //元祖类型
 let arr: [number, string] = [123, "this is ts"]; //可以设置多种数据类型
 console.log(arr);
@@ -118,7 +118,7 @@ console.log(arr);
 
 格式（枚举名一般首字母大写）
 
-```js
+```ts
 enum 枚举名{
     标识符[=整型常数],
     标识符[=整型常数],
@@ -153,7 +153,7 @@ console.log(c);   //4
 
 typescript 中的 void 表示没有任何类型，一般用于定义方法的时候方法没有返回值。
 
-```js
+```ts
 //正确写法
 function run(): void {
   console.log("run");
@@ -177,7 +177,7 @@ run();
 
 声明函数：
 
-```js
+```ts
 //es5定义函数的方法
 //函数声明法
 function run() {
@@ -203,7 +203,7 @@ function run(): string {
 
 定义传参
 
-```js
+```ts
 //函数声明
 function getInfo(name: string, age: number): string {
   return `${name} --- ${age}`;
@@ -219,7 +219,7 @@ alert(getInfo("zhangsan", 40));
 
 没有返回值
 
-```js
+```ts
 function run(): void {
   console.log("run");
 }
@@ -232,7 +232,7 @@ es5 里面方法的实参和行参可以不一样，但是 ts 中必须一样，
 
 使用`?`来指定是否需要
 
-```js
+```ts
 function getInfo(name: string, age?: number): string {
   if (age) {
     return `${name} --- ${age}`;
@@ -252,7 +252,7 @@ alert(getInfo("zhangsan", 123));
 
 es5 里面没法设置默认参数，es6 和 ts 中都可以设置默认参数 默认参数配置后不可以指定可选参数！！！
 
-```js
+```ts
 function getInfo(name: string, age: number = 20): string {
   if (age) {
     return `${name} --- ${age}`;
@@ -269,7 +269,7 @@ alert(getInfo("张三", 30));
 
 三点运算符 接受新参传过来的值
 
-```js
+```ts
 function sum(...result: number[]): number {
   var sum = 0;
 
@@ -302,44 +302,41 @@ typescript 中的重载：通过为同一个函数提供多个函数类型定义
 
 - es5 中出现同名方法，下面的会替换上面的方法,ts 中的重载可以理解为限制参数的一个方法
 
-```js
+```ts
 //参数必须为string和number类型 其余会报错
-function getInfo(name:string):string;
-function getInfo(age:number):string;
-function getInfo(str:any):any{
-    if(typeof str==='string'){
-        return '我叫：'+str;
-    }else{
-
-        return '我的年龄是'+str;
-    }
-
+function getInfo(name: string): string;
+function getInfo(age: number): string;
+function getInfo(str: any): any {
+  if (typeof str === "string") {
+    return "我叫：" + str;
+  } else {
+    return "我的年龄是" + str;
+  }
 }
 
-alert(getInfo('张三'));   //正确
+alert(getInfo("张三")); //正确
 
-alert(getInfo(20));   //正确
+alert(getInfo(20)); //正确
 
-alert(getInfo(true));    //错误写法
+alert(getInfo(true)); //错误写法
 
 //下面同理
-function getInfo(name:string):string;
-function getInfo(name:string,age:number):string;
-function getInfo(name:any,age?:any):any{
-    if(age){
-
-        return '我叫：'+name+'我的年龄是'+age;
-    }else{
-
-        return '我叫：'+name;
-    }
+function getInfo(name: string): string;
+function getInfo(name: string, age: number): string;
+function getInfo(name: any, age?: any): any {
+  if (age) {
+    return "我叫：" + name + "我的年龄是" + age;
+  } else {
+    return "我叫：" + name;
+  }
 }
 
-alert(getInfo('zhangsan'));  /*正确*/
+alert(getInfo("zhangsan")); /*正确*/
 
-alert(getInfo(123));  错误
+alert(getInfo(123));
+错误;
 
-alert(getInfo('zhangsan',20));
+alert(getInfo("zhangsan", 20));
 ```
 
 ### 3.6、箭头函数 es6
@@ -350,7 +347,7 @@ this 指向的问题 箭头函数里面的 this 指向上下文 详细可[参照
 
 ### 4.1、函数中最简单的类
 
-```js
+```ts
 function Person() {
   this.name = "张三";
   this.age = 20;
@@ -361,7 +358,7 @@ alert(p.name); //张三
 
 ### 4.2、构造函数和原型链里面增加方法
 
-```js
+```ts
 function Person() {
   this.name = "张三"; /*属性*/
   this.age = 20;
@@ -382,7 +379,7 @@ p.work(); //可以
 
 ### 4.3、类里面的静态方法
 
-```js
+```ts
 function Person() {
   this.name = "张三"; /*属性*/
   this.age = 20;
@@ -412,7 +409,7 @@ Person.getInfo();
 
 - 1、对象冒充实现继承 (可以继承构造函数里面的属性和方法 但是没法继承原型链上面的属性和方法)
 
-```js
+```ts
 function Person() {
   this.name = "张三"; /*属性*/
   this.age = 20;
@@ -442,7 +439,7 @@ w.work(); //对象冒充可以继承构造函数里面的属性和方法   但�
 
 继承方式
 
-```js
+```ts
 function Person() {
   this.name = "张三"; /*属性*/
   this.age = 20;
@@ -470,7 +467,7 @@ w.work();
 
 无法传参！！！
 
-```js
+```ts
 function Person(name, age) {
   //需要传递参数
   this.name = name; /*属性*/
@@ -501,7 +498,7 @@ w.run();
 
 - 3、原型链+对象冒充的组合继承模式(对象冒充继承 实例化子类可以给父类传参)
 
-```js
+```ts
 function Person(name, age) {
   this.name = name; /*属性*/
   this.age = age;
@@ -535,7 +532,7 @@ w.work();
 
 ### 5.1、ts 中定义类
 
-```js
+```ts
 // ts中定义类：
 
 class Person {
@@ -557,7 +554,7 @@ p.run();
 
 ### 5.2、ts 中实现继承 extends、 super
 
-```js
+```ts
 class Person {
   name: string;
   constructor(name: string) {
@@ -580,7 +577,7 @@ alert(w.run());
 
 - ts 中继承的探讨 父类的方法和子类的方法一致时以子类方法为准
 
-```js
+```ts
 class Person {
   name;
   constructor(name) {
@@ -617,7 +614,7 @@ alert(w.run()); //李四在运动-子类
 
 属性如果不加修饰符 默认就是 公有 （public）
 
-```js
+```ts
 class Person{
   public name:string;  /*公有属性*/
     constructor(name:string){
@@ -722,7 +719,7 @@ alert(p.run());
 
 ### 5.4、静态属性 静态方法
 
-```js
+```ts
 function Person() {
   this.run1 = function() {};
 }
@@ -739,7 +736,7 @@ Person.run2();
 
 ### 5.5、JQ 的实现底层原理简析
 
-```js
+```ts
 function $(element) {
   return new Base(element);
 }
@@ -761,28 +758,29 @@ $.get("url", function() {});
 
 ### 5.6、静态属性
 
-```js
- class Per{
-    public name:string;
-    public age:number=20;
-    //静态属性
+```ts
+class Per {
+  public name: string;
+  public age: number = 20;
+  //静态属性
 
-    static sex="男";
-    constructor(name:string) {
-            this.name=name;
-    }
-    run(){  /*实例方法*/
+  static sex = "男";
+  constructor(name: string) {
+    this.name = name;
+  }
+  run() {
+    /*实例方法*/
 
-        alert(`${this.name}在运动`)
-    }
-    work(){
+    alert(`${this.name}在运动`);
+  }
+  work() {
+    alert(`${this.name}在工作`);
+  }
+  static print() {
+    /*静态方法  里面没法直接调用类里面的属性*/
 
-        alert(`${this.name}在工作`)
-    }
-    static print(){  /*静态方法  里面没法直接调用类里面的属性*/
-
-        alert('print方法'+Per.sex);
-    }
+    alert("print方法" + Per.sex);
+  }
 }
 
 // var p=new Per('张三');
@@ -798,7 +796,7 @@ alert(Per.sex); //出错
 
 多态:父类定义一个方法不去实现，让继承它的子类去实现 每一个子类有不同的表现 （感觉没什么用）
 
-```js
+```ts
 class Animal {
   name: string;
   constructor(name: string) {
@@ -837,62 +835,48 @@ class Cat extends Animal {
 - abstract 抽象方法只能放在抽象类里面
 - 抽象类和抽象方法用来定义标准 。 标准：Animal 这个类要求它的子类必须包含 eat 方法
 
-```js
+```ts
 //标准:
 
-abstract class Animal{
+abstract class Animal {
+  public name: string;
+  constructor(name: string) {
+    this.name = name;
+  }
+  abstract eat(): any; //抽象方法不包含具体实现并且必须在派生类中实现。
 
-    public name:string;
-    constructor(name:string){
-
-        this.name=name;
-
-    }
-    abstract eat():any;  //抽象方法不包含具体实现并且必须在派生类中实现。
-
-    run(){
-
-        console.log('其他方法可以不实现')
-    }
+  run() {
+    console.log("其他方法可以不实现");
+  }
 }
-
 
 // var a=new Animal() /*错误的写法*/
 
-
-class Dog extends Animal{
-
-    //抽象类的子类必须实现抽象类里面的抽象方法
-    constructor(name:any){
-        super(name)
-    }
-    eat(){
-
-        console.log(this.name+'吃粮食')
-    }
+class Dog extends Animal {
+  //抽象类的子类必须实现抽象类里面的抽象方法
+  constructor(name: any) {
+    super(name);
+  }
+  eat() {
+    console.log(this.name + "吃粮食");
+  }
 }
 
-var d=new Dog('小花花');
+var d = new Dog("小花花");
 d.eat();
 
-class Cat extends Animal{
-
-    //抽象类的子类必须实现抽象类里面的抽象方法
-    constructor(name:any){
-        super(name)
-    }
-    run(){
-
-
-    }
-    eat(){
-
-        console.log(this.name+'吃老鼠')
-    }
-
+class Cat extends Animal {
+  //抽象类的子类必须实现抽象类里面的抽象方法
+  constructor(name: any) {
+    super(name);
+  }
+  run() {}
+  eat() {
+    console.log(this.name + "吃老鼠");
+  }
 }
 
-var c=new Cat('小花猫');
+var c = new Cat("小花猫");
 c.eat();
 ```
 
@@ -907,7 +891,7 @@ c.eat();
 - 对批量方法传入参数进行约束
 - 接口：行为和动作的规范，对批量方法进行约束
 
-```js
+```ts
 //就是传入对象的约束    属性接口
 interface FullName {
   firstName: string; //注意;结束
@@ -934,7 +918,7 @@ printName(obj);
 
 ### 6.2、定义 ajax 接口
 
-```js
+```ts
 $.ajax({
   type: "GET",
   url: "test.json",
@@ -980,3 +964,1119 @@ ajax({
 ```
 
 ### 6.3、可索引接口，类型接口
+
+可索引接口：数组、对象的约束 （不常用）
+
+#### 6.3.1、可索引接口 对数组的约束
+
+```ts
+//可索引接口 对数组的约束
+interface UserArr {
+  [index: number]: string; //数组的下标必须为number
+}
+
+// var arr:UserArr=['aaa','bbb'];
+
+// console.log(arr[0]);
+
+var arr: UserArr = [123, "bbb"]; /*错误*/
+
+console.log(arr[0]);
+```
+
+#### 6.3.2、可索引接口 对对象的约束
+
+```ts
+interface UserObj {
+  [index: string]: string;
+}
+
+var arr: UserObj = { name: "张三" };
+```
+
+#### 6.3.3、类类型接口
+
+类类型接口:对类的约束 和 抽象类抽象有点相似
+
+- 使用方式 不是单纯的规定类型，使用 implements 进行约束
+
+```ts
+interface Animal {
+  name: string;
+  eat(str: string): void;
+}
+
+class Dog implements Animal {
+  name: string;
+  constructor(name: string) {
+    this.name = name;
+  }
+  eat() {
+    console.log(this.name + "吃粮食");
+  }
+}
+
+var d = new Dog("小黑");
+d.eat();
+
+class Cat implements Animal {
+  name: string;
+  constructor(name: string) {
+    this.name = name;
+  }
+  eat(food: string) {
+    console.log(this.name + "吃" + food);
+  }
+}
+
+var c = new Cat("小花");
+c.eat("老鼠");
+```
+
+### 6.4、接口扩展
+
+- 接口扩展：接口可以继承接口
+
+使用方式(继承之后必须两个属性和方法都需要有方法参数可传可不传)
+
+```ts
+interface Animal {
+  eat(): void;
+}
+
+interface Person extends Animal {
+  work(): void;
+}
+
+class Web implements Person {
+  public name: string;
+  constructor(name: string) {
+    this.name = name;
+  }
+
+  eat() {
+    console.log(this.name + "喜欢吃馒头");
+  }
+  work() {
+    console.log(this.name + "写代码");
+  }
+}
+
+var w = new Web("小李");
+
+w.eat();
+```
+
+### 6.5、接口继承并约束
+
+接口实现继承并对其进行扩展接口约束
+
+```ts
+interface Animal {
+  eat(): void;
+}
+
+interface Person extends Animal {
+  work(): void;
+}
+
+class Programmer {
+  public name: string;
+  constructor(name: string) {
+    this.name = name;
+  }
+
+  coding(code: string) {
+    console.log(this.name + code);
+  }
+}
+
+class Web extends Programmer implements Person {
+  constructor(name: string) {
+    super(name);
+  }
+  eat() {
+    console.log(this.name + "喜欢吃馒头");
+  }
+  work() {
+    console.log(this.name + "写代码");
+  }
+}
+var w = new Web("小李");
+// w.eat();
+w.coding("写ts代码");
+```
+
+- 其中接口 Person 扩展了 Animal，类 Web 继承了 Programmer 并使用了扩展接口 Person 进行约束
+
+## 七、泛型
+
+### 7.1、泛型定义
+
+泛型：软件工程中，我们不仅要创建一致的定义良好的 API，同时也要考虑可重用性。 组件不仅能够支持当前的数据类型，同时也能支持未来的数据类型，这在创建大型系统时为你提供了十分灵活的功能。
+
+在像 C#和 Java 这样的语言中，可以使用泛型来创建可重用的组件，一个组件可以支持多种类型的数据。 这样用户就可以以自己的数据类型来使用组件。
+
+- 通俗理解：泛型就是解决 类 接口 方法的复用性、以及对不特定数据类型的支持(类型校验)
+
+举例来说同时返回 string 类型 和 number 类型 （代码冗余）
+
+```ts
+function getData1(value: string): string {
+  return value;
+}
+
+function getData2(value: number): number {
+  return value;
+}
+```
+
+同时返回 string 类型 和 number 类型 , any 可以解决这个问题
+然尔 any 放弃了类型检查,传入什么 返回什么。比如:传入 number 类型必须返回 number 类型 传入 string 类型必须返回 string 类型
+
+- 泛型：可以支持不特定的数据类型 要求：传入的参数和返回的参数一直
+
+T 表示泛型，具体什么类型是调用这个方法的时候决定的
+
+使用方法
+
+```ts
+//函数getData的参数和返回必须为同一个数据类型
+function getData<T>(value: T): T {
+  return value;
+}
+getData<number>(123);
+
+getData<string>("1214231"); //规定什么数据类型就需要返回什么数据类型
+
+getData<number>("2112"); /*错误的写法*/
+```
+
+### 7.2、泛型类(含 demo)
+
+泛型类：比如有个最小堆算法，需要同时支持返回数字和字符串 a - z 两种类型。 通过类的泛型来实现
+
+```ts
+//类的泛型;
+
+class MinClas<T> {
+  public list: T[] = [];
+
+  add(value: T): void {
+    this.list.push(value);
+  }
+
+  min(): T {
+    var minNum = this.list[0];
+    for (var i = 0; i < this.list.length; i++) {
+      if (minNum > this.list[i]) {
+        minNum = this.list[i];
+      }
+    }
+    return minNum;
+  }
+}
+
+var m1 = new MinClas<number>(); /*实例化类 并且制定了类的T代表的类型是number*/
+m1.add(11);
+m1.add(3);
+m1.add(2);
+alert(m1.min());
+
+var m2 = new MinClas<string>(); /*实例化类 并且制定了类的T代表的类型是string*/
+m2.add("c");
+m2.add("a");
+m2.add("v");
+alert(m2.min());
+```
+
+### 7.3、泛型接口
+
+(感觉用的不多，函数中可以直接使用泛型)
+
+使用方法
+
+```ts
+//方法一
+interface ConfigFn {
+  <T>(value: T): T;
+}
+
+var getData: ConfigFn = function<T>(value: T): T {
+  return value;
+};
+
+getData<string>("张三");
+
+getData<string>(1243); //错误
+
+//方法二
+interface ConfigFn<T> {
+  (value: T): T;
+}
+
+function getData<T>(value: T): T {
+  return value;
+}
+
+var myGetData: ConfigFn<string> = getData;
+
+myGetData("20"); /*正确*/
+
+// myGetData(20)  //错误
+```
+
+### 7.4、泛类（用的很多 含 demo）
+
+泛类：泛型可以帮助我们避免重复的代码以及对不特定数据类型的支持(类型校验)，下面我们看看把类当做参数的泛型类
+1、定义个类
+2、把类作为参数来约束数据传入的类型
+
+使用 demo
+
+```ts
+/*
+定义一个User的类这个类的作用就是映射数据库字段
+然后定义一个 MysqlDb的类这个类用于操作数据库
+然后把User类作为参数传入到MysqlDb中
+
+var user=new User({
+    username:'张三',
+    password:'123456'
+})
+
+var Db=new MysqlDb();
+Db.add(user);
+*/
+
+//使用。(此方法复用性不强) 要添加文章类时需要对MysqlDb重写
+class User {
+  username: string | undefined;
+  password: string | undefined;
+}
+class MysqlDb<User> {
+  add(user: User): blooean {
+    return true;
+  }
+}
+var user = new User({
+  username: "张三",
+  password: "123456"
+});
+
+var Db = new MysqlDb();
+Db.add(user);
+
+//解决方案 使用泛型类
+
+//定义操作数据库的泛型类
+class MysqlDb<T> {
+  add(info: T): boolean {
+    console.log(info);
+    return true;
+  }
+  updated(info: T, id: number): boolean {
+    console.log(info);
+
+    console.log(id);
+
+    return true;
+  }
+}
+//想给User表增加数据
+
+//1、定义一个User类 和数据库进行映射
+
+class User {
+  username: string | undefined;
+  pasword: string | undefined;
+}
+var u = new User();
+u.username = "张三";
+u.pasword = "123456";
+var Db = new MysqlDb<User>();
+Db.add(u);
+//2、想给ArticleCate增加数据  定义一个ArticleCate类 和数据库进行映射
+class ArticleCate {
+  title: string | undefined;
+  desc: string | undefined;
+  status: number | undefined;
+
+  //构造函数中传入值，多个值时需要使用对象来接收以备调用
+  constructor(params: {
+    title: string | undefined;
+    desc: string | undefined;
+    status?: number | undefined;
+  }) {
+    this.title = params.title;
+    this.desc = params.desc;
+    this.status = params.status;
+  }
+}
+//增加操作
+var a = new ArticleCate({
+  title: "分类",
+  desc: "1111",
+  status: 1
+});
+
+//类当做参数的泛型类
+var Db = new MysqlDb<ArticleCate>();
+Db.add(a);
+
+//修改数据
+var a = new ArticleCate({
+  title: "分类111",
+  desc: "2222"
+});
+
+a.status = 0;
+var Db = new MysqlDb<ArticleCate>();
+Db.updated(a, 12);
+```
+
+### 7.5 综合应用（数据库 demo）
+
+结合类、类型、泛型、接口、实现对多种数据库的封装
+
+功能：定义一个操作数据库的库 支持 Mysql Mssql MongoDb
+
+要求 1：Mysql MsSql MongoDb 功能一样 都有 add update delete get 方法
+
+注意：约束统一的规范、以及代码重用
+
+解决方案：需要约束规范所以要定义接口 ，需要代码重用所以用到泛型
+
+1、接口：在面向对象的编程中，接口是一种规范的定义，它定义了行为和动作的规范
+
+2、泛型 通俗理解：泛型就是解决 类 接口 方法的复用性、
+
+实现
+
+```ts
+interface DBI<T> {
+  add(info: T): boolean;
+  update(info: T, id: number): boolean;
+  delete(id: number): boolean;
+  get(id: number): any[];
+}
+//定义一个操作mysql数据库的类       注意：要实现泛型接口 这个类也应该是一个泛型类
+class MysqlDb<T> implements DBI<T> {
+  constructor() {
+    console.log("数据库建立连接");
+  }
+  add(info: T): boolean {
+    console.log(info);
+
+    return true;
+  }
+
+  update(info: T, id: number): boolean {
+    throw new Error("Method not implemented.");
+  }
+  delete(id: number): boolean {
+    throw new Error("Method not implemented.");
+  }
+  get(id: number): any[] {
+    var list = [
+      {
+        title: "xxxx",
+        desc: "xxxxxxxxxx"
+      },
+      {
+        title: "xxxx",
+        desc: "xxxxxxxxxx"
+      }
+    ];
+
+    return list;
+  }
+}
+
+//定义一个操作mssql数据库的类
+class MsSqlDb<T> implements DBI<T> {
+  constructor() {
+    console.log("数据库建立连接");
+  }
+  add(info: T): boolean {
+    console.log(info);
+    return true;
+  }
+  update(info: T, id: number): boolean {
+    throw new Error("Method not implemented.");
+  }
+  delete(id: number): boolean {
+    throw new Error("Method not implemented.");
+  }
+  get(id: number): any[] {
+    var list = [
+      {
+        title: "xxxx",
+        desc: "xxxxxxxxxx"
+      },
+      {
+        title: "xxxx",
+        desc: "xxxxxxxxxx"
+      }
+    ];
+
+    return list;
+  }
+}
+//操作用户表   定义一个User类和数据表做映射
+/*
+
+class User{
+    username:string | undefined;
+    password:string | undefined;
+}
+
+
+var u=new User();
+u.username='张三111';
+u.password='123456';
+
+
+var oMysql=new MysqlDb<User>(); //类作为参数来约束数据传入的类型 
+oMysql.add(u);
+
+*/
+class User {
+  username: string | undefined;
+  password: string | undefined;
+}
+
+var u = new User();
+u.username = "张三2222";
+u.password = "123456";
+
+var oMssql = new MsSqlDb<User>();
+oMssql.add(u);
+
+//获取User表 ID=4的数据
+var data = oMssql.get(4);
+console.log(data);
+```
+
+## 八、模块
+
+### 8.1 模块的的概念
+
+模块的的概念（官方）:
+
+关于术语的一点说明: 请务必注意一点，TypeScript 1.5 里术语名已经发生了变化。 “内部模块”现在称做“命名空间”。
+“外部模块”现在则简称为“模块” 模块在其自身的作用域里执行，而不是在全局作用域里；
+这意味着定义在一个模块里的变量，函数，类等等在模块外部是不可见的，除非你明确地使用 export 形式之一导出它们。
+相反，如果想使用其它模块导出的变量，函数，类，接口等的时候，你必须要导入它们，可以使用 import 形式之一。
+
+模块的概念（自己理解）：
+
+我们可以把一些公共的功能单独抽离成一个文件作为一个模块。
+模块里面的变量 函数 类等默认是私有的，如果我们要在外部访问模块里面的数据（变量、函数、类），
+我们需要通过 export 暴露模块里面的数据（变量、函数、类...）。
+暴露后我们通过 import 引入模块就可以使用模块里面暴露的数据（变量、函数、类...）。
+
+### 8.2 模块导出的几种方法
+
+使用 export 声明 也可以在末尾同一导出
+
+```ts
+export function getData(): any[] {
+  console.log("获取数据库的数据111");
+  return [
+    {
+      title: "121312"
+    },
+    {
+      title: "121312"
+    }
+  ];
+}
+export function save() {
+  console.log("保存数据成功");
+}
+
+//或者统一导出 不用加括号
+export { getData, save };
+
+//导入
+import { getData, save } from "路径";
+```
+
+export default 默认导出
+
+每个模块都可以有一个 default 导出。 默认导出使用 default 关键字标记；并且一个模块只能够有一个 default 导出。 需要使用一种特殊的导入形式来导入 default 导出。
+
+```ts
+function getData(): any[] {
+  console.log("获取数据库的数据");
+
+  return [
+    {
+      title: "121312"
+    },
+    {
+      title: "121312"
+    }
+  ];
+}
+export default getData;
+//在引入的时候只能直接引入
+import getData from '路径;
+```
+
+### 8.3 模块化封装（demo）
+
+模块化封装上一讲的 DB 库
+
+功能：定义一个操作数据库的库 支持 Mysql Mssql MongoDb
+
+要求 1：Mysql MsSql MongoDb 功能一样 都有 add update delete get 方法
+
+注意：约束统一的规范、以及代码重用
+
+解决方案：需要约束规范所以要定义接口 ，需要代码重用所以用到泛型
+
+1、接口：在面向对象的编程中，接口是一种规范的定义，它定义了行为和动作的规范
+
+2、泛型 通俗理解：泛型就是解决 类 接口 方法的复用性、
+
+思路：数据库进行模块化，将用户和文章都进行模块化
+
+index.ts
+
+```ts
+import { UserClass, UserModel } from "./model/user";
+
+import { ArticleClass, ArticleModel } from "./model/article";
+
+//增加数据
+var u = new UserClass();
+u.username = "张三";
+u.password = "12345655654757";
+UserModel.add(u);
+
+//获取user表数据
+var res = UserModel.get(123);
+console.log(res);
+
+//获取文章表的数据
+var aRes = ArticleModel.get(1);
+console.log(aRes);
+```
+
+modules/db.ts
+
+```ts
+interface DBI<T> {
+  add(info: T): boolean;
+  update(info: T, id: number): boolean;
+  delete(id: number): boolean;
+  get(id: number): any[];
+}
+
+//定义一个操作mysql数据库的类       注意：要实现泛型接口 这个类也应该是一个泛型类
+
+export class MysqlDb<T> implements DBI<T> {
+  constructor() {
+    console.log("数据库建立连接");
+  }
+  add(info: T): boolean {
+    console.log(info);
+
+    return true;
+  }
+
+  update(info: T, id: number): boolean {
+    throw new Error("Method not implemented.");
+  }
+  delete(id: number): boolean {
+    throw new Error("Method not implemented.");
+  }
+  get(id: number): any[] {
+    var list = [
+      {
+        title: "xxxx",
+        desc: "xxxxxxxxxx"
+      },
+      {
+        title: "xxxx",
+        desc: "xxxxxxxxxx"
+      }
+    ];
+
+    return list;
+  }
+}
+
+//定义一个操作mssql数据库的类
+
+export class MsSqlDb<T> implements DBI<T> {
+  constructor() {
+    console.log("数据库建立连接");
+  }
+  add(info: T): boolean {
+    console.log(info);
+    return true;
+  }
+  update(info: T, id: number): boolean {
+    throw new Error("Method not implemented.");
+  }
+  delete(id: number): boolean {
+    throw new Error("Method not implemented.");
+  }
+  get(id: number): any[] {
+    var list = [
+      {
+        title: "xxxx",
+        desc: "xxxxxxxxxx"
+      },
+      {
+        title: "xxxx",
+        desc: "xxxxxxxxxx"
+      }
+    ];
+
+    return list;
+  }
+}
+```
+
+model/user.ts
+
+```ts
+import { MsSqlDb } from "../modules/db";
+
+//定义数据库的映射
+class UserClass {
+  username: string | undefined;
+  password: string | undefined;
+}
+
+var UserModel = new MsSqlDb<UserClass>();
+export { UserClass, UserModel };
+```
+
+model/article.ts
+
+```ts
+import { MsSqlDb } from "../modules/db";
+
+//定义数据库的映射
+class ArticleClass {
+  title: string | undefined;
+  desc: string | undefined;
+}
+
+var ArticleModel = new MsSqlDb<ArticleClass>();
+export { ArticleClass, ArticleModel };
+```
+
+## 九、命名空间
+
+命名空间:
+
+在代码量较大的情况下，为了避免各种变量命名相冲突，可将相似功能的函数、类、接口等放置到命名空间内
+
+同 Java 的包、.Net 的命名空间一样，TypeScript 的命名空间可以将代码包裹起来，只对外暴露需要在外部访问的对象。命名空间内的对象通过 export 关键字对外暴露。
+
+命名空间和模块的区别：
+
+命名空间：内部模块，主要用于组织代码，避免命名冲突。
+
+模 块：ts 的外部模块的简称，侧重代码的复用，一个模块里可能会有多个命名空间。
+
+使用方法 :可以理解成类，进行点操作获取不同的命名空间的方法，如果要导出也需要导出（export）申明
+
+```ts
+//如果要在外部引用需要进行导出
+//使用方法
+/*
+import {A,B} from './modules/animal';
+
+
+var d=new A.Dog('小黑');
+d.eat();
+*/
+
+export namespace A {
+  interface Animal {
+    name: string;
+    eat(): void;
+  }
+  export class Dog implements Animal {
+    name: string;
+    constructor(theName: string) {
+      this.name = theName;
+    }
+
+    eat() {
+      console.log(`${this.name} 在吃狗粮。`);
+    }
+  }
+
+  export class Cat implements Animal {
+    name: string;
+    constructor(theName: string) {
+      this.name = theName;
+    }
+
+    eat() {
+      console.log(`${this.name} 吃猫粮。`);
+    }
+  }
+}
+
+namespace B {
+  interface Animal {
+    name: string;
+    eat(): void;
+  }
+  export class Dog implements Animal {
+    name: string;
+    constructor(theName: string) {
+      this.name = theName;
+    }
+
+    eat() {
+      console.log(`${this.name} 在吃狗粮。`);
+    }
+  }
+
+  export class Cat implements Animal {
+    name: string;
+    constructor(theName: string) {
+      this.name = theName;
+    }
+
+    eat() {
+      console.log(`${this.name} 在吃猫粮。`);
+    }
+  }
+}
+
+var c = new B.Cat("小花");
+
+c.eat();
+```
+
+## 十、装饰器
+
+装饰器:装饰器是一种特殊类型的声明，它能够被附加到类声明，方法，属性或参数上，可以修改类的行为。
+
+通俗的讲装饰器就是一个方法，可以注入到类、方法、属性参数上来扩展类、属性、方法、参数的功能。
+
+常见的装饰器有：类装饰器、属性装饰器、方法装饰器、参数装饰器
+
+装饰器的写法：普通装饰器（无法传参） 、 装饰器工厂（可传参）
+
+装饰器是过去几年中 js 最大的成就之一，已是 Es7 的标准特性之一
+
+### 10.1 类装饰器
+
+类装饰器：类装饰器在类声明之前被声明（紧靠着类声明）。 类装饰器应用于类构造函数，可以用来监视，修改或替换类定义。 传入一个参数
+
+无法传参（不怎么使用）
+
+使用方法
+
+```ts
+function logClass(params: any) {
+  console.log(params);
+  // params 就是当前类
+  params.prototype.apiUrl = "动态扩展的属性";
+  params.prototype.run = function() {
+    console.log("我是一个run方法");
+  };
+}
+
+@logClass
+class HttpClient {
+  constructor() {}
+  getData() {}
+}
+var http: any = new HttpClient();
+console.log(http.apiUrl);
+http.run();
+```
+
+含有参数的的类装饰器（经常使用）:装饰器工厂（可传参）
+
+使用方法
+
+```ts
+function logClass(params: string) {
+  //固定写法，参数为构造函数
+  return function(target: any) {
+    console.log(target); //构造函数
+    console.log(params); //接收的参数
+    target.prototype.apiUrl = params; //在原型链上扩展属性
+  };
+}
+
+@logClass("http://www.xxx.com/")
+class HttpClient {
+  constructor() {}
+
+  getData() {}
+}
+
+var http: any = new HttpClient();
+console.log(http.apiUrl);
+```
+
+下面是一个重载构造函数的例子。
+类装饰器表达式会在运行时当作函数被调用，类的构造函数作为其唯一的参数。
+
+如果类装饰器返回一个值，它会使用提供的构造函数来替换类的声明。
+
+```ts
+function logClass(target: any) {
+  console.log(target);
+  return class extends target {
+    apiUrl: any = "我是修改后的数据";
+    getData() {
+      this.apiUrl = this.apiUrl + "----";
+      console.log(this.apiUrl);
+    }
+  };
+}
+
+@logClass()
+class HttpClient {
+  public apiUrl: string | undefined;
+  constructor() {
+    this.apiUrl = "我是构造函数里面的apiUrl";
+  }
+  getData() {
+    console.log(this.apiUrl);
+  }
+}
+
+var http = new HttpClient();
+http.getData(); //我是修改后的数据----;
+```
+
+### 10.2 属性装饰器
+
+属性装饰器表达式会在运行时当作函数被调用，传入下列 2 个参数：
+1、对于静态成员来说是类的构造函数，对于实例成员是类的原型对象。
+2、成员的名字。
+
+使用方法
+
+```ts
+function logProperty(params: any) {
+  return function(target: any, attr: any) {
+    console.log(target);
+    console.log(attr); //装饰的属性 url
+    target[attr] = params;
+  };
+}
+class HttpClient {
+  @logProperty("http://itying.com")
+  public url: any | undefined;
+  constructor() {}
+  getData() {
+    console.log(this.url);
+  }
+}
+var http = new HttpClient();
+http.getData();
+```
+
+### 10.3、方法装饰器
+
+它会被应用到方法的 属性描述符上，可以用来监视，修改或者替换方法定义。
+
+方法装饰会在运行时传入下列 3 个参数：
+1、对于静态成员来说是类的构造函数，对于实例成员是类的原型对象。
+2、成员的名字。
+3、成员的属性描述符。
+
+使用方法
+
+```ts
+//方法装饰器一
+
+function get(params: any) {
+  return function(target: any, methodName: any, desc: any) {
+    console.log(target);
+    console.log(methodName); //方法名称
+    console.log(desc); //方法描述
+    target.apiUrl = "xxxx";
+    target.run = function() {
+      console.log("run");
+    };
+  };
+}
+
+class HttpClient {
+  public url: any | undefined;
+  constructor() {}
+  @get("http://www.xxx.com")
+  getData() {
+    console.log(this.url);
+  }
+}
+
+var http: any = new HttpClient();
+console.log(http.apiUrl);
+http.run();
+
+//方法装饰器二
+function get(params: any) {
+  return function(target: any, methodName: any, desc: any) {
+    console.log(target);
+    console.log(methodName);
+    console.log(desc.value); //方法的内容
+
+    //修改装饰器的方法  把装饰器方法里面传入的所有参数改为string类型
+
+    //1、保存当前的方法
+
+    var oMethod = desc.value;
+    desc.value = function(...args: any[]) {
+      args = args.map(value => {
+        return String(value);
+      });
+      oMethod.apply(this, args); //this指向方法本身
+    };
+  };
+}
+
+class HttpClient {
+  public url: any | undefined;
+  constructor() {}
+  @get("http://www.xxx.com")
+  getData(...args: any[]) {
+    console.log(args);
+    console.log("我是getData里面的方法");
+  }
+}
+
+var http = new HttpClient();
+http.getData(123, "xxx"); //修改数据为string类型
+```
+
+### 10.4、方法参数装饰器 （不常用）
+
+参数装饰器表达式会在运行时当作函数被调用，可以使用参数装饰器为类的原型增加一些元素数据 ，传入下列 3 个参数：
+
+1、对于静态成员来说是类的构造函数，对于实例成员是类的原型对象。
+2、方法的名字。
+3、参数在函数参数列表中的索引。
+
+```ts
+function logParams(params: any) {
+  return function(target: any, methodName: any, paramsIndex: any) {
+    console.log(params);
+
+    console.log(target);
+
+    console.log(methodName);
+
+    console.log(paramsIndex);
+
+    target.apiUrl = params;
+  };
+}
+
+class HttpClient {
+  public url: any | undefined;
+  constructor() {}
+  getData(@logParams("xxxxx") uuid: any) {
+    console.log(uuid);
+  }
+}
+
+var http: any = new HttpClient();
+http.getData(123456);
+console.log(http.apiUrl);
+```
+
+### 10.5 执行顺序
+
+属性 >>>方法>>>方法参数>>>类
+
+如果有多个同样的装饰器，它会先执行后面的
+
+示例
+
+```ts
+function logClass1(params: string) {
+  return function(target: any) {
+    console.log("类装饰器1");
+  };
+}
+
+function logClass2(params: string) {
+  return function(target: any) {
+    console.log("类装饰器2");
+  };
+}
+
+function logAttribute1(params?: string) {
+  return function(target: any, attrName: any) {
+    console.log("属性装饰器1");
+  };
+}
+
+function logAttribute2(params?: string) {
+  return function(target: any, attrName: any) {
+    console.log("属性装饰器2");
+  };
+}
+
+function logMethod1(params?: string) {
+  return function(target: any, attrName: any, desc: any) {
+    console.log("方法装饰器1");
+  };
+}
+function logMethod2(params?: string) {
+  return function(target: any, attrName: any, desc: any) {
+    console.log("方法装饰器2");
+  };
+}
+
+function logParams1(params?: string) {
+  return function(target: any, attrName: any, desc: any) {
+    console.log("方法参数装饰器1");
+  };
+}
+
+function logParams2(params?: string) {
+  return function(target: any, attrName: any, desc: any) {
+    console.log("方法参数装饰器2");
+  };
+}
+
+@logClass1("http://www.xxx.com/api")
+@logClass2("xxxx")
+class HttpClient {
+  @logAttribute1()
+  @logAttribute2()
+  public apiUrl: string | undefined;
+  constructor() {}
+
+  @logMethod1()
+  @logMethod2()
+  getData() {
+    return true;
+  }
+
+  setData(@logParams1() attr1: any, @logParams2() attr2: any) {}
+}
+
+var http: any = new HttpClient();
+
+//打印顺序
+属性装饰器2
+属性装饰器1
+方法装饰器2
+方法装饰器1
+方法参数装饰器2
+方法参数装饰器1
+类装饰器2
+类装饰器1
+```
