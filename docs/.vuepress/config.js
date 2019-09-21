@@ -14,7 +14,6 @@ module.exports = {
     nav: [
       { text: '首页', link: '/home/' },
       { text: '随手记', link: '/practice/' },
-      // { text: '代码兼容', link: '/compatible/' },
       { text: '方法汇总', link: '/method/' },
       // { text: '总结资料', link: '/summary/' },
       {
@@ -24,6 +23,8 @@ module.exports = {
           { text: 'Gird布局', link: '/summary/gird' },
           { text: 'RegExp正则', link: '/summary/RegExp' },
           { text: 'ts总结', link: '/summary/ts' },
+          { text: 'angular基础', link: '/summary/angular' },
+          { text: 'vue基础', link: '/summary/vue' },
         ]
       },
       // { text: 'Github', link: 'https://google.com' },
@@ -67,6 +68,7 @@ module.exports = {
             ['scrollBar', '浏览器自定义滚动条'],
             ['hashAnimate', '使用js动态为锚点添加动画'],
             ['time', 'js中的时间问题'],
+            ['selectText', '选择div中的所有文字'],
           ]
         },
         {
